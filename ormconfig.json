@@ -2,7 +2,7 @@
   "synchronize": true,
   "logging": false,
   "entities": [
-     "src/entities/**/*.ts"
+     "src/components/**/entity.ts"
   ],
   "cli": {
      "entitiesDir": "src/entity",
