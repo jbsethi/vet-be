@@ -14,5 +14,11 @@
   ],
   "subscribers": [
      "src/subscriber/**/*.ts"
+   ],
+   "seeds": [
+      "src/components/**/seeds{.ts,.js}"
+   ],
+   "factories": [
+      "src/components/**/factories{.ts,.js}"
    ]
 }

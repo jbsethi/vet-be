@@ -5,3 +5,9 @@ export const getAllUsers = (req: Request, res: Response) => {
     worked: 'worked'
   })
 };
+
+export const registerNewUser = (req: Request, res: Response) => {
+  res.send({
+    worked: 'worked'
+  })
+}

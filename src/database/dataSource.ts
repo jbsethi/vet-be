@@ -1,8 +1,9 @@
-import {DataSource} from "typeorm";
+import {DataSource, DataSourceOptions} from "typeorm";
+import { SeederOptions } from 'typeorm-extension';
 
 import envVars from "../declarations/envVars";
 
-export const AppDataSource = new DataSource({
+export const DataSourceOpts: DataSourceOptions & SeederOptions = {
   type: envVars.database.type,
   host: envVars.database.host,
   port: envVars.database.port,
@@ -14,6 +15,10 @@ export const AppDataSource = new DataSource({
   entities: [
     'src/components/**/entity.ts'
   ],
+  seeds: ['src/components/**/seeder{.ts,.js}'],
+  factories: ['src/components/**/factory{.ts,.js}'],
   subscribers: [],
   migrations: [],
-})
+}
+
+export const AppDataSource = new DataSource(DataSourceOpts)
