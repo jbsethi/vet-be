@@ -16,6 +16,9 @@ export class User {
     email: string
 
     @Column()
+    hash: string
+
+    @Column()
     isActive: boolean
 
     @ManyToOne(() => Role, (role) => role.users)

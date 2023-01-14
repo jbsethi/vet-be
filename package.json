@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "db:create": "ts-node ./node_modules/typeorm-extension/dist/cli/index.js db:create",
+    "db:drop": "ts-node ./node_modules/typeorm-extension/dist/cli/index.js db:drop",
+    "seed": "ts-node ./node_modules/typeorm-extension/dist/cli/index.js seed",
     "start": "node ./dist/index.js --env=production",
     "start:dev": "ts-node -r tsconfig-paths/register ./src",
     "lint": "eslint . --ext .ts"
@@ -33,6 +36,7 @@
     "winston": "^3.8.2"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "@types/cookie-parser": "^1.4.3",
     "@types/morgan": "^1.9.4",
     "@types/node": "^18.11.18",

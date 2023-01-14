@@ -25,7 +25,7 @@ userRouter.get(
     'jwt',
     { session: false },
   ),
-  helper.checkPermissionWithCb('user_get_all', userController.getAllUsers)
+  helper.checkPermissionWithCb('user_get', userController.getAllUsers)
 );
 
 

@@ -17,11 +17,6 @@ authenticate(passport);
 
 const authRouter: Router = Router();
 
-authRouter.get(
-    '/',
-    authController.me
-);
-
 authRouter.post(
     meta.routes.login,
     authController.login
@@ -30,9 +25,9 @@ authRouter.post(
 authRouter.get(
     meta.routes.me,
     passport.authenticate(
-        'jwt',
-        { session: false },
-      ),
+      'jwt',
+      { session: false },
+    ),
     authController.me
 )
 

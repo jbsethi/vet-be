@@ -3,15 +3,11 @@
 import { Request, Response } from "express";
 import { Repository } from "typeorm";
 import { Permission } from "../components/permission/entity";
-import { User } from "../components/user/entity";
+import { Role } from "../components/role/entity";
 import { AppDataSource } from "../database/dataSource";
+import { IRequestWithUser } from "./types";
 
-const permissionRepository: Repository<Permission> = AppDataSource.getRepository(Permission);
-
-
-interface IRequestWithUser extends Request {
-  user: User
-}
+const roleRepository: Repository<Role> = AppDataSource.getRepository(Role);
 
 class Helper {
   constructor() {}
@@ -19,20 +15,20 @@ class Helper {
   checkPermission(roleId: number, permName: string) {
     return new Promise(
       (resolve, reject) => {
-        permissionRepository
-          .findOne({
+        roleRepository
+          .findOneOrFail({
             relations: {
-              roles: true,
+              permissions: true
             },
             where: {
-              name: permName
+              id: roleId
             }
           })
-          .then((permission) => {
-            const rolePermission = permission?.roles.find(role => role.id === roleId);
+          .then((role) => {
+            const permission: Permission | undefined = role.permissions?.find((permission: Permission) => permission.name === permName);
 
-            if(rolePermission) {
-              resolve(rolePermission);
+            if(permission) {
+              resolve(permission);
             } else {
               reject({message: 'Forbidden'});
             }

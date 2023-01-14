@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Seeder } from 'typeorm-extension';
-import { DataSource, InsertResult } from 'typeorm';
+import { DataSource } from 'typeorm';
+import bcrypt from 'bcryptjs';
 
 import { Role } from '../role/entity'
 import { User } from './entity';
@@ -42,6 +43,7 @@ export default class UserSeeder implements Seeder {
         user.firstName = 'super';
         user.lastName = 'admin';
         user.email = 'super.admin@vetbe.com';
+        user.hash = bcrypt.hashSync('123456789', bcrypt.genSaltSync(10));
         user.isActive = true;
         user.role = insertedRole;
 

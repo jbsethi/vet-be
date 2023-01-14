@@ -5,6 +5,7 @@ import morgan from 'morgan';
 
 import logger from './shared/logger';
 import BaseRouter from './routes';
+import passport from 'passport';
 
 const app = express();
 app.use(express.json());
@@ -19,6 +20,8 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
       error: err.message,
   });
 });
+
+app.use(passport.initialize());
 
 // Add APIs
 app.use('/api', BaseRouter);

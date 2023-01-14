@@ -4,13 +4,14 @@ import { Strategy, ExtractJwt } from 'passport-jwt';
 import { Repository } from 'typeorm';
 import { User } from '../components/user/entity';
 import { AppDataSource } from '../database/dataSource';
+import envVars from '../declarations/envVars';
 
 const userRepository: Repository<User> = AppDataSource.getRepository(User);
 
 const authenticate = (passport: PassportStatic) => {
   const opts = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('JWT'),
-    secretOrKey: 'nodeauthsecret',
+    secretOrKey: envVars.auth.secret,
   };
 
   passport.use('jwt', new Strategy(opts, function(jwt_payload, done: any) {
