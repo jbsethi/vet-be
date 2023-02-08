@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { Repository } from "typeorm";
 import { Permission } from "../components/permission/entity";
 import { Role } from "../components/role/entity";
@@ -39,17 +39,24 @@ class Helper {
     );
   }
 
-  checkPermissionWithCb(permName: string, cb: any) {
-    return (req: Request, res: Response) => {
+  checkPermissionWithCb(permName: string) {
+    return (req: Request, res: Response, next: NextFunction) => {
       const roleId: number = (req as IRequestWithUser).user?.role?.id;
 
       this.checkPermission(roleId, permName)
         .then(() => {
-          cb(req, res);
+          next();
         })
         .catch((error) => {
           res.status(403).send(error);
         })
+    }
+  }
+
+  catchAsync(fn: any) {
+    return (req: Request, res: Response, next: NextFunction) => {
+      Promise.resolve(fn(req, res, next))
+        .catch((error) => next(error))
     }
   }
 }

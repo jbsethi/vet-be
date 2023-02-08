@@ -2,6 +2,7 @@
 import { PassportStatic } from 'passport';
 import { Strategy, ExtractJwt } from 'passport-jwt';
 import { Repository } from 'typeorm';
+
 import { User } from '../components/user/entity';
 import { AppDataSource } from '../database/dataSource';
 import envVars from '../declarations/envVars';

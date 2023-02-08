@@ -10,6 +10,7 @@ import { Permission } from '../permission/entity';
 const permissions: string[] = [
     'user_add',
     'user_get',
+    'permission_get'
 ];
 
 export default class UserSeeder implements Seeder {

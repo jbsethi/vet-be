@@ -25,7 +25,8 @@ userRouter.get(
     'jwt',
     { session: false },
   ),
-  helper.checkPermissionWithCb('user_get', userController.getAllUsers)
+  helper.checkPermissionWithCb('user_get'),
+  helper.catchAsync(userController.getAllUsers)
 );
 
 
@@ -35,7 +36,8 @@ userRouter.post(
     'jwt',
     { session: false },
   ),
-  helper.checkPermissionWithCb('user_add', userController.registerNewUser)
+  helper.checkPermissionWithCb('user_add'),
+  helper.catchAsync(userController.registerNewUser)
 );
 
 export const router: Router = userRouter;
