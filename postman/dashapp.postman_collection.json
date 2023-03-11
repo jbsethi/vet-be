@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "de9e4188-694a-4b29-953d-4bd496666165",
+		"name": "dashapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"super.admin@vetbe.com\",\n    \"password\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoic3VwZXIiLCJsYXN0TmFtZSI6ImFkbWluIiwiZW1haWwiOiJzdXBlci5hZG1pbkB2ZXRiZS5jb20iLCJoYXNoIjoiJDJhJDEwJEVwNHJPSTBXWGFFbFVwSGRydnNVbS50WlVpbWovMVFPYjhiUTNRcllVMkJDeE4wdktmYU0yIiwiaXNBY3RpdmUiOnRydWUsInJvbGUiOnsiaWQiOjEsIm5hbWUiOiJzdXBlciIsImRlc2NpcHJpdG9uIjoiVGhlIGRlZmF1bHQgc3VwZXIgcm9sZSB3aXRoIGFsbCBhY2Nlc3MgZnJvbSBzdGFydCJ9LCJpYXQiOjE2NzU4ODUwMzUsImV4cCI6MTY3NjE0NDIzNX0.cB-6VQUPgjAqRVhAcE9me9oZmVzLenzJ7rXT-zpOFfg",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "JWT",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoic3VwZXIiLCJsYXN0TmFtZSI6ImFkbWluIiwiZW1haWwiOiJzdXBlci5hZG1pbkB2ZXRiZS5jb20iLCJoYXNoIjoiJDJhJDEwJEVwNHJPSTBXWGFFbFVwSGRydnNVbS50WlVpbWovMVFPYjhiUTNRcllVMkJDeE4wdktmYU0yIiwiaXNBY3RpdmUiOnRydWUsInJvbGUiOnsiaWQiOjEsIm5hbWUiOiJzdXBlciIsImRlc2NpcHJpdG9uIjoiVGhlIGRlZmF1bHQgc3VwZXIgcm9sZSB3aXRoIGFsbCBhY2Nlc3MgZnJvbSBzdGFydCJ9LCJpYXQiOjE2NzM1NTQ1MjEsImV4cCI6MTY3MzgxMzcyMX0.4NVL3iZUg_EDRfSfeNwLvOTvSNOh0YAOKaKUSeDSjJs",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/auth/me",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get all users",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoic3VwZXIiLCJsYXN0TmFtZSI6ImFkbWluIiwiZW1haWwiOiJzdXBlci5hZG1pbkB2ZXRiZS5jb20iLCJoYXNoIjoiJDJhJDEwJEVwNHJPSTBXWGFFbFVwSGRydnNVbS50WlVpbWovMVFPYjhiUTNRcllVMkJDeE4wdktmYU0yIiwiaXNBY3RpdmUiOnRydWUsInJvbGUiOnsiaWQiOjEsIm5hbWUiOiJzdXBlciIsImRlc2NpcHJpdG9uIjoiVGhlIGRlZmF1bHQgc3VwZXIgcm9sZSB3aXRoIGFsbCBhY2Nlc3MgZnJvbSBzdGFydCJ9LCJpYXQiOjE2NzU4ODUxMTIsImV4cCI6MTY3NjE0NDMxMn0.Z6Krwx2GToV5WHeD78MdzpiiWfrun70s0qIMnMLm6Fc",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new user",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoic3VwZXIiLCJsYXN0TmFtZSI6ImFkbWluIiwiZW1haWwiOiJzdXBlci5hZG1pbkB2ZXRiZS5jb20iLCJoYXNoIjoiJDJhJDEwJEVwNHJPSTBXWGFFbFVwSGRydnNVbS50WlVpbWovMVFPYjhiUTNRcllVMkJDeE4wdktmYU0yIiwiaXNBY3RpdmUiOnRydWUsInJvbGUiOnsiaWQiOjEsIm5hbWUiOiJzdXBlciIsImRlc2NpcHJpdG9uIjoiVGhlIGRlZmF1bHQgc3VwZXIgcm9sZSB3aXRoIGFsbCBhY2Nlc3MgZnJvbSBzdGFydCJ9LCJpYXQiOjE2NzU4ODg1MTAsImV4cCI6MTY3NjE0NzcxMH0.tm7AzTfxRd8lvYTtxwbqqZCllaCvD6IXmLpLAL0xLcQ",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Jahanzeb\",\n    \"lastName\": \"sethi\",\n    \"email\": \"jahanzebsethi@gmail.com\",\n    \"password\": \"123456\",\n    \"roleId\": \"5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "permissions",
+			"item": [
+				{
+					"name": "get all permissions",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoic3VwZXIiLCJsYXN0TmFtZSI6ImFkbWluIiwiZW1haWwiOiJzdXBlci5hZG1pbkB2ZXRiZS5jb20iLCJoYXNoIjoiJDJhJDEwJHc1a0lmTzlkckJzMVJYMVl3QmR4dWVudGhuejMuL3FoNGE2TVh0dGJCdWJOT05DQ3dQa3hLIiwiaXNBY3RpdmUiOnRydWUsInJvbGUiOnsiaWQiOjEsIm5hbWUiOiJzdXBlciIsImRlc2NpcHJpdG9uIjoiVGhlIGRlZmF1bHQgc3VwZXIgcm9sZSB3aXRoIGFsbCBhY2Nlc3MgZnJvbSBzdGFydCJ9LCJpYXQiOjE2NzU4ODk0ODksImV4cCI6MTY3NjE0ODY4OX0.7JRPHAKiq3jCdhn5ZXOD8gzYfPK_udEOSalcKUd3aE8",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/permissions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

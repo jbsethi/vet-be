@@ -9,5 +9,9 @@ export default {
     database: "dashapp",
     synchronize: true,
     logging: true,
+  },
+  auth: {
+    secret: 'AuthSecretKeyForNodeApp',
+    expiresIn: 60 * 60 * 24 * 3
   }
 } as const;

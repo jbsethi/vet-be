@@ -1,18 +1,17 @@
 {
-  "synchronize": true,
-  "logging": false,
-  "entities": [
-     "src/entities/**/*.ts"
-  ],
-  "cli": {
-     "entitiesDir": "src/entity",
-     "migrationsDir": "src/migration",
-     "subscribersDir": "src/subscriber"
-   },
-  "migrations": [
-     "src/migration/**/*.ts"
-  ],
-  "subscribers": [
-     "src/subscriber/**/*.ts"
-   ]
+   "type": "postgres",
+   "host": "localhost",
+   "port": 5432,
+   "username": "postgres",
+   "password": "postgres",
+   "database": "dashapp",
+   "synchronize": true,
+   "logging": true,
+   "entities": [
+     "src/components/**/entity.ts"
+   ],
+   "seeds": ["src/components/**/seeder{.ts,.js}"],
+   "factories": ["rc/components/**/factory{.ts,.js}"],
+   "subscribers": [],
+   "migrations": []
 }
