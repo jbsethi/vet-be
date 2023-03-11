@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npx tsc",
     "start": "node ./dist/index.js --env=production",
     "start:dev": "ts-node -r tsconfig-paths/register ./src",
     "lint": "eslint . --ext .ts"
