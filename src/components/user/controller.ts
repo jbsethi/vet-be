@@ -69,7 +69,7 @@ export const registerNewUser = async (req: Request, res: Response) => {
   newUser.firstName = firstName;
   newUser.lastName = lastName;
   newUser.email = email;
-  newUser.hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));;
+  newUser.hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 
   newUser.role = role;
 
